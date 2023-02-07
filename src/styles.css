@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #03071E !important;
+}
+
+.banner{
+    width: 90%;
+    position: relative;
+    background: url(assets/images/banner.png);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    border-color: #4c5174 !important;
+}
+
+section .card{
+    max-width: 80%;
+}
+
+.bg-most-dark-blue{
+    background-color: #03071E;
+}
+
+.bg-medium-dark-blue{
+    background-color: #0A113A;
+}
+
+.bg-card-title{
+    background-color: #020618 !important;
+}
+
+.bg-card-body{
+    background-color: #02092c !important;
+}
+
