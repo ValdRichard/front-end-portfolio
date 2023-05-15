@@ -1,0 +1,101 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Editar datos de persona</h1>
+    <button class="mx-auto btn btn-success" [routerLink]="['/portfolio']">Volver</button>
+    <h2 class="text-danger">Cuidado, solo se requiere un elemento de este tipo, si ya creo un elemento tendra que ser eliminado con el boton rojo al lado del banner.</h2>
+    <h2>Si entraste aqui por accidente, solo dale al boton de Volver</h2>
+    <form class="m-4" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombreYApellido" class="form-label">Nombre y apellido</label>
+            <input formControlName="nombreYApellido" name="nombreYApellido" type="text" class="form-control" id="nombreYApellido" aria-describedby="nombreYApellido"
+            [ngClass]="{'is-invalid':NombreYApellido?.errors && NombreYApellido?.touched, 'is-valid': !NombreYApellido?.errors && NombreYApellido?.touched}">
+            <div *ngIf="NombreYApellido?.errors && NombreYApellido?.touched">
+                <p *ngIf="NombreYApellido?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Email</label>
+            <input formControlName="mail" name="mail" type="text" class="form-control" id="mail" aria-describedby="mail"
+            [ngClass]="{'is-invalid':Mail?.errors && Mail?.touched, 'is-valid': !Mail?.errors && Mail?.touched}">
+            <div *ngIf="Mail?.errors && Mail?.touched">
+                <p *ngIf="Mail?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion</label>
+            <input formControlName="descripcion" name="descripcion" type="text" class="form-control" id="descripcion" aria-describedby="descripcion"
+            [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid': !Descripcion?.errors && Descripcion?.touched}">
+            <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="urlLinkedin" class="form-label">Url de linkedin</label>
+            <input formControlName="urlLinkedin" name="urlLinkedin" type="text" class="form-control" id="urlLinkedin" aria-describedby="urlLinkedin"
+            [ngClass]="{'is-invalid':UrlLinkedin?.errors && UrlLinkedin?.touched, 'is-valid': !UrlLinkedin?.errors && UrlLinkedin?.touched}">
+            <div *ngIf="UrlLinkedin?.errors && UrlLinkedin?.touched">
+                <p *ngIf="UrlLinkedin?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="urlGithub" class="form-label">Url de Github</label>
+            <input formControlName="urlGithub" name="urlGithub" type="text" class="form-control" id="urlGithub" aria-describedby="urlGithub"
+            [ngClass]="{'is-invalid':UrlGithub?.errors && UrlGithub?.touched, 'is-valid': !UrlGithub?.errors && UrlGithub?.touched}">
+            <div *ngIf="UrlGithub?.errors && UrlGithub?.touched">
+                <p *ngIf="UrlGithub?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="imageGithub" class="form-label">Imagen de github</label>
+            <input formControlName="imageGithub" name="imageGithub" type="text" class="form-control" id="imageGithub" aria-describedby="imageGithub"
+            [ngClass]="{'is-invalid':ImageGithub?.errors && ImageGithub?.touched, 'is-valid': !ImageGithub?.errors && ImageGithub?.touched}">
+            <div *ngIf="ImageGithub?.errors && ImageGithub?.touched">
+                <p *ngIf="ImageGithub?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="imageLinkedin" class="form-label">Imagen de linkedin</label>
+            <input formControlName="imageLinkedin" name="imageLinkedin" type="text" class="form-control" id="imageLinkedin" aria-describedby="imageLinkedin"
+            [ngClass]="{'is-invalid':ImageLinkedin?.errors && ImageLinkedin?.touched, 'is-valid': !ImageLinkedin?.errors && ImageLinkedin?.touched}">
+            <div *ngIf="ImageLinkedin?.errors && ImageLinkedin?.touched">
+                <p *ngIf="ImageLinkedin?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="imageFotoPerfil" class="form-label">Foto de perfil</label>
+            <input formControlName="imageFotoPerfil" name="imageFotoPerfil" type="text" class="form-control" id="imageFotoPerfil" aria-describedby="imageFotoPerfil"
+            [ngClass]="{'is-invalid':ImageFotoPerfil?.errors && ImageFotoPerfil?.touched, 'is-valid': !ImageFotoPerfil?.errors && ImageFotoPerfil?.touched}">
+            <div *ngIf="ImageFotoPerfil?.errors && ImageFotoPerfil?.touched">
+                <p *ngIf="ImageFotoPerfil?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="imageBanner" class="form-label">Banner</label>
+            <input formControlName="imageBanner" name="imageBanner" type="text" class="form-control" id="imageBanner" aria-describedby="imageBanner"
+            [ngClass]="{'is-invalid':ImageBanner?.errors && ImageBanner?.touched, 'is-valid': !ImageBanner?.errors && ImageBanner?.touched}">
+            <div *ngIf="ImageBanner?.errors && ImageBanner?.touched">
+                <p *ngIf="ImageBanner?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>

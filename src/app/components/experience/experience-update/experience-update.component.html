@@ -1,0 +1,59 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Editar</h1>
+    <button class="mx-auto btn btn-success" [routerLink]="['/portfolio']">Volver</button>
+    <form class="m-4" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombrePuesto" class="form-label">Nombre del puesto</label>
+            <input formControlName="nombrePuesto" name="nombrePuesto" type="text" class="form-control" id="nombrePuesto" aria-describedby="NombrePuesto"
+            [ngClass]="{'is-invalid':NombrePuesto?.errors && NombrePuesto?.touched, 'is-valid': !NombrePuesto?.errors && NombrePuesto?.touched}">
+            <div *ngIf="NombrePuesto?.errors && NombrePuesto?.touched">
+                <p *ngIf="NombrePuesto?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="nombreLugar" class="form-label">Nombre del lugar</label>
+            <input formControlName="nombreLugar" name="nombreLugar" type="text" class="form-control" id="nombreLugar" aria-describedby="nombreLugar"
+            [ngClass]="{'is-invalid':NombreLugar?.errors && NombreLugar?.touched, 'is-valid': !NombreLugar?.errors && NombreLugar?.touched}">
+            <div *ngIf="NombreLugar?.errors && NombreLugar?.touched">
+                <p *ngIf="NombreLugar?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion</label>
+            <input formControlName="descripcion" name="descripcion" type="text" class="form-control" id="descripcion" aria-describedby="descripcion"
+            [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid': !Descripcion?.errors && Descripcion?.touched}">
+            <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="fechaInicio" class="form-label">Fecha de inicio</label>
+            <input formControlName="fechaInicio" name="fechaInicio" type="text" class="form-control" id="fechaInicio" aria-describedby="fechaInicio"
+            [ngClass]="{'is-invalid':FechaInicio?.errors && FechaInicio?.touched, 'is-valid': !FechaInicio?.errors && FechaInicio?.touched}">
+            <div *ngIf="FechaInicio?.errors && FechaInicio?.touched">
+                <p *ngIf="FechaInicio?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="fechaFinal" class="form-label">Fecha final</label>
+            <input formControlName="fechaFinal" name="fechaFinal" type="text" class="form-control" id="fechaFinal" aria-describedby="fechaFinal"
+            [ngClass]="{'is-invalid':FechaFinal?.errors && FechaFinal?.touched, 'is-valid': !FechaFinal?.errors && FechaFinal?.touched}">
+            <div *ngIf="FechaFinal?.errors && FechaFinal?.touched">
+                <p *ngIf="FechaFinal?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>

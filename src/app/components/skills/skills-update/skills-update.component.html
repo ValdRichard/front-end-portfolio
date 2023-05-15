@@ -1,0 +1,29 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Editar Skill</h1>
+    <button class="mx-auto btn btn-success" [routerLink]="['/portfolio']">Volver</button>
+    <form class="m-4" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombreHabilidad" class="form-label">Nombre de la Skill</label>
+            <input formControlName="nombreHabilidad" name="nombreHabilidad" type="text" class="form-control" id="nombreHabilidad" aria-describedby="nombreHabilidad"
+            [ngClass]="{'is-invalid':NombreHabilidad?.errors && NombreHabilidad?.touched, 'is-valid': !NombreHabilidad?.errors && NombreHabilidad?.touched}">
+            <div *ngIf="NombreHabilidad?.errors && NombreHabilidad?.touched">
+                <p *ngIf="NombreHabilidad?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="porcentaje" class="form-label">Porcentaje</label>
+            <input formControlName="porcentaje" name="porcentaje" type="text" class="form-control" id="porcentaje" aria-describedby="porcentaje"
+            [ngClass]="{'is-invalid':Porcentaje?.errors && Porcentaje?.touched, 'is-valid': !Porcentaje?.errors && Porcentaje?.touched}">
+            <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
+                <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>

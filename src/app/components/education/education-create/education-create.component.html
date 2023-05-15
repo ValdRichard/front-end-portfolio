@@ -1,0 +1,50 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Crear educacion</h1>
+    <button class="mx-auto btn btn-success" [routerLink]="['/portfolio']">Volver</button>
+    <form class="m-4" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="tituloEdu" class="form-label">Titulo de la educacion</label>
+            <input formControlName="tituloEdu" name="tituloEdu" type="text" class="form-control" id="tituloEdu" aria-describedby="tituloEdu"
+            [ngClass]="{'is-invalid':TituloEdu?.errors && TituloEdu?.touched, 'is-valid': !TituloEdu?.errors && TituloEdu?.touched}">
+            <div *ngIf="TituloEdu?.errors && TituloEdu?.touched">
+                <p *ngIf="TituloEdu?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="periodoEdu" class="form-label">Periodo de la Educacion</label>
+            <input formControlName="periodoEdu" name="periodoEdu" type="text" class="form-control" id="periodoEdu" aria-describedby="PeriodoEdu"
+            [ngClass]="{'is-invalid':PeriodoEdu?.errors && PeriodoEdu?.touched, 'is-valid': !PeriodoEdu?.errors && PeriodoEdu?.touched}">
+            <div *ngIf="PeriodoEdu?.errors && PeriodoEdu?.touched">
+                <p *ngIf="PeriodoEdu?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="institucionEdu" class="form-label">Institucion de la educacion</label>
+            <input formControlName="institucionEdu" name="institucionEdu" type="text" class="form-control" id="institucionEdu" aria-describedby="institucionEdu"
+            [ngClass]="{'is-invalid':InstitucionEdu?.errors && InstitucionEdu?.touched, 'is-valid': !InstitucionEdu?.errors && InstitucionEdu?.touched}">
+            <div *ngIf="InstitucionEdu?.errors && InstitucionEdu?.touched">
+                <p *ngIf="InstitucionEdu?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descripcionEdu" class="form-label">Descripcion de la educacion</label>
+            <input formControlName="descripcionEdu" name="descripcionEdu" type="text" class="form-control" id="descripcionEdu" aria-describedby="descripcionEdu"
+            [ngClass]="{'is-invalid':DescripcionEdu?.errors && DescripcionEdu?.touched, 'is-valid': !DescripcionEdu?.errors && DescripcionEdu?.touched}">
+            <div *ngIf="DescripcionEdu?.errors && DescripcionEdu?.touched">
+                <p *ngIf="InstitucionEdu?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+
+    </form>
+</div>

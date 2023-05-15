@@ -1,8 +1,43 @@
 <section class="education container-fluid text-light bg-most-dark-blue pb-4 mt-4">
-    <h2 class="ms-4">Educacion</h2>
+    <h2 class="ms-4">Educacion
+        <a routerLink="/educacionCrear">
+            <img class="img-responsive me-4" src="../assets/images/addButton.svg" alt="Añadir"  height="30">
+        </a>
+    </h2>
     <div class="row">
-        <app-education-card></app-education-card>
-        <app-education-card></app-education-card>
-        <app-education-card></app-education-card>
+        <div class="col-6" *ngFor="let edu of educaciones">
+            <div class="card border-0 mx-auto m-2 rounded-3">
+              <h5 class="card-header bg-11 bg-card-title">{{ edu.tituloEdu}}
+                <p class="fs-6">{{ edu.periodoEdu }}</p>
+                <a [routerLink]="['/educacionEdit', edu.id]">
+                  <img class="img-responsive ms-4" src="../assets/images/editButton.svg" alt="Editar"  height="30">
+                </a>
+                <button type="button" class="btn" [attr.data-bs-target]="'#educacionModal-' + edu.id" data-bs-toggle="modal">
+                  <img class="img-responsive" src="../assets/images/deleteButton.svg" alt="Editar" height="30">
+                </button>
+                <div class="modal fade" [id]="'educacionModal-' + edu.id" tabindex="-1" aria-labelledby="educacionModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header bg-danger">
+                        <h1 class="modal-title fs-5 text-black" id="educacionModalLabel">Eliminar</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body bg-most-dark-blue">
+                        ¿Estas seguro de eliminar este elemento? Desaparecera para siempre.
+                      </div>
+                      <div class="modal-footer bg-secondary">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" (click)="eliminar(edu.id)">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </h5>
+              <div class="card-body bg-card-body">
+                <h5 class="card-title">{{edu.institucionEdu}}</h5>
+                <p class="card-text">{{edu.descripcionEdu}}</p>
+              </div>
+            </div>
+        </div>
     </div>
-  </section>
+</section>

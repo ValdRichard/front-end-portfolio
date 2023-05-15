@@ -1,0 +1,43 @@
+<section class="skills container-fluid text-light bg-medium-dark-blue py-1">
+    <h2 class="ms-4">Skills
+        <a routerLink="/skillCrear">
+            <img class="img-responsive me-4" src="../assets/images/addButton.svg" alt="Añadir"  height="30">
+        </a>
+    </h2>
+      <div class="row justify-content-center">
+        <div class="col-3 card border-0 m-2 mx-4 p-0 rounded-3" *ngFor="let skill of skills">
+          <h5 class="card-header bg-card-title">{{skill.nombreHabilidad}}
+            <a [routerLink]="['/skillEdit', skill.id]">
+              <img class="img-responsive ms-4" src="../assets/images/editButton.svg" alt="Editar"  height="30">
+            </a>
+            <button type="button" class="btn" [attr.data-bs-target]="'#skillModal-' + skill.id" data-bs-toggle="modal">
+              <img class="img-responsive" src="../assets/images/deleteButton.svg" alt="Editar" height="30">
+            </button>
+            <div class="modal fade" [id]="'skillModal-' + skill.id" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header bg-danger">
+                    <h1 class="modal-title fs-5 text-black" id="skillModalLabel">Eliminar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body bg-most-dark-blue">
+                    ¿Estas seguro de eliminar este elemento? Desaparecera para siempre.
+                  </div>
+                  <div class="modal-footer bg-secondary">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="eliminar(skill.id)">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </h5>
+          <div class="card-body bg-card-body">
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" [ngStyle]="{ 'width': skill.porcentaje + '%' }">
+                {{skill.porcentaje}}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>

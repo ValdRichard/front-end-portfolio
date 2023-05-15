@@ -1,0 +1,39 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Editar proyecto</h1>
+    <button class="mx-auto btn btn-success" [routerLink]="['/portfolio']">Volver</button>
+    <form class="m-4" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombreProyecto" class="form-label">Nombre del proyecto</label>
+            <input formControlName="nombreProyecto" name="nombreProyecto" type="text" class="form-control" id="nombreProyecto" aria-describedby="nombreProyecto"
+            [ngClass]="{'is-invalid':NombreProyecto?.errors && NombreProyecto?.touched, 'is-valid': !NombreProyecto?.errors && NombreProyecto?.touched}">
+            <div *ngIf="NombreProyecto?.errors && NombreProyecto?.touched">
+                <p *ngIf="NombreProyecto?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descripcionProyecto" class="form-label">Descripcion del proyecto</label>
+            <input formControlName="descripcionProyecto" name="descripcionProyecto" type="text" class="form-control" id="descripcionProyecto" aria-describedby="descripcionProyecto"
+            [ngClass]="{'is-invalid':DescripcionProyecto?.errors && DescripcionProyecto?.touched, 'is-valid': !DescripcionProyecto?.errors && DescripcionProyecto?.touched}">
+            <div *ngIf="DescripcionProyecto?.errors && DescripcionProyecto?.touched">
+                <p *ngIf="DescripcionProyecto?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="repoUrl" class="form-label">Url del repositorio</label>
+            <input formControlName="repoUrl" name="repoUrl" type="text" class="form-control" id="repoUrl" aria-describedby="repoUrl"
+            [ngClass]="{'is-invalid':RepoUrl?.errors && RepoUrl?.touched, 'is-valid': !RepoUrl?.errors && RepoUrl?.touched}">
+            <div *ngIf="RepoUrl?.errors && RepoUrl?.touched">
+                <p *ngIf="RepoUrl?.hasError('required')" class="text-danger">
+                    El campo es requerido.
+                </p>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>

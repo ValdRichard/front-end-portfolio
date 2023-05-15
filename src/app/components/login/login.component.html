@@ -1,0 +1,19 @@
+<div class="container bg-medium-dark-blue p-3 text-light">
+    <h1 class="m-4">Iniciar sesion</h1>
+    <form class="m-4" #form="ngForm" (ngSubmit)="login(form)">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" id="email" aria-describedby="email" [(ngModel)]="creds.email">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input name="password" type="password" class="form-control" id="password" [(ngModel)]="creds.password">
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+
+    </form>
+</div>

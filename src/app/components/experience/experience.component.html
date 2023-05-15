@@ -1,8 +1,43 @@
-<section class="experience container-fluid text-light bg-medium-dark-blue py-1">
-    <h2 class="ms-4 mt-2">Experiencia</h2>
+<section class="experience container-fluid text-light bg-medium-dark-blue py-4">
+  <h2 class="ms-4">Experiencias
+      <a routerLink="/experienciaCrear">
+          <img class="img-responsive me-4" src="../assets/images/addButton.svg" alt="Añadir"  height="30">
+      </a>
+  </h2>
     <div class="row">
-      <app-experience-card></app-experience-card>
-      <app-experience-card></app-experience-card>
-      <app-experience-card></app-experience-card>
-    </div>
+      <div class="col-6" *ngFor="let exp of experiencias">
+          <div class="card border-0 mx-auto m-2 rounded-3">
+            <h4 class="card-header bg-11 bg-card-title">{{ exp.nombrePuesto }}
+              <a [routerLink]="['/experienciaEdit', exp.id]">
+                <img class="img-responsive ms-4" src="../assets/images/editButton.svg" alt="Editar"  height="30">
+              </a>
+              <button type="button" class="btn" [attr.data-bs-target]="'#experienciaModal-' + exp.id" data-bs-toggle="modal">
+                <img class="img-responsive" src="../assets/images/deleteButton.svg" alt="Editar" height="30">
+              </button>
+              <div class="modal fade" [id]="'experienciaModal-' + exp.id" tabindex="-1" aria-labelledby="experienciaModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                      <h1 class="modal-title fs-5 text-black" id="experienciaModalLabel">Eliminar</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-most-dark-blue">
+                      ¿Estas seguro de eliminar este elemento? Desaparecera para siempre.
+                    </div>
+                    <div class="modal-footer bg-secondary">
+                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" (click)="eliminar(exp.id)">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="fs-6">{{exp.fechaInicio}}-{{exp.fechaFinal}}</p>
+            </h4>
+            <div class="card-body bg-card-body">
+              <h5 class="card-title">{{exp.nombreLugar}}</h5>
+              <p class="card-text">{{exp.descripcion}}</p>
+            </div>
+          </div>
+      </div>
+  </div>
 </section>

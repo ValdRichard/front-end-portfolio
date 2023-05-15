@@ -8,10 +8,10 @@ body {
     background: #03071E !important;
 }
 
-.banner{
-    width: 90%;
+.banner {
+    width: 100%;
+    background-image: url(./assets/images/banner.png);
     position: relative;
-    background: url(assets/images/banner.png);
     min-height: 100vh;
     background-size: cover;
     background-position: center;

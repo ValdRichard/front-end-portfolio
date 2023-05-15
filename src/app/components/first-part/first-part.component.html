@@ -1,22 +1,80 @@
-<section class="first-part container-fluid pb-4">
-    <section class="banner m-auto mt-4 border border-secondary border-2 rounded">
+<nav class="navbar navbar-expand-lg border-bottom border-secondary border-3 bg-most-dark-blue">
+  <div class="container-fluid">
+    
+      <img  class="img-responsive" src="../assets/images/argProgramIcon.png" alt="Argentina Programa" width="100" height="28">
+    
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <a class="nav-item" href="{{persona?.urlGithub}}" target="_blank">     
+          <img class="img-responsive" src="../assets/images/github.svg" alt="Icono de instagram"  height="30">
+        </a>
+        <a class="nav-item" href="{{persona?.urlLinkedin}}" target="_blank">
+          <img class="img-responsive ms-4" src="../assets/images/linkedin.svg" alt="Icono de linkeding"  height="30">
+        </a>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="first-part container pb-4">
+    <section class="m-auto mt-4 border border-secondary border-2 rounded">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-          </div>
-        </div>
+        <div class="banner"></div>
       </div>
-    </section>
+    </section>  
     <section class="owner container">
       <div class="card mx-auto border-0 mt-4 ">
         <div class="row g-2 bg-most-dark-blue">
           <div class="col-md-3">
-            <img src="../assets/images/owner.jpg" class="img-fluid rounded-circle" alt="Imagen del dueño del portfolio">
+            <img src="../../../assets/images/owner.jpg" class="img-fluid rounded-circle" alt="Imagen del dueño del portfolio">
           </div>
-          <div class="col-md-4 offset-md-3 fs-5">
+          
+          <div class="col-md-6 offset-md-3 fs-5">
             <div class="card-body text-light">
-              <h2 class="card-title">Valdivia Ricardo</h2>
-              <p class="card-text">Buenas! Soy un programador principiante, este es mi portfolio, que ha pesar que esta vacio, todo lo que se muestra fue hecho con mucho esfuerzo y ganas!</p>
+              <h2 class="card-title">{{persona?.nombreyApellido}}</h2>
+              <p class="card-text">{{persona?.descripcion}}</p>
+              <small class="fs-6">mail: {{persona?.mail}}</small>
+              <a [routerLink]="['/personaEdit', persona?.id]">
+                <img class="img-responsive ms-4" src="../assets/images/editButton.svg" alt="Editar"  height="30">
+              </a>
+              <a routerLink="/personaCrear">
+                <img class="img-responsive me-4" src="../assets/images/addButton.svg" alt="Añadir"  height="30">
+              </a>
+              <button type="button" class="btn" data-bs-target="#proyectoModal" data-bs-toggle="modal">
+                <img class="img-responsive" src="../assets/images/deleteButton.svg" alt="Editar" height="30">
+              </button>
+              <div class="modal fade" id="proyectoModal" tabindex="-1" aria-labelledby="proyectoModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                      <h1 class="modal-title fs-5 text-black" id="proyectoModalLabel">Eliminar</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-most-dark-blue">
+                      Este comando no eliminara la instancia de persona en uso, si eliminara las copias que se pudieron haber creado por accidente.
+                      <div *ngIf="limpio">
+                        <p>
+                            La base de datos ya fue purificada, ya puede seguir navegando.
+                        </p>
+                    </div>
+                    </div>
+                    <div class="modal-footer bg-secondary">
+                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
