@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FirstPartComponent implements OnInit {
   persona?: Persona;
-  limpio: boolean = false;
+
   constructor(
     private apiService: ApiService,
     private router: Router
@@ -21,6 +21,7 @@ export class FirstPartComponent implements OnInit {
       .subscribe(persona =>{
         this.persona = persona[0];
       })
+
   }
   eliminar(): void {
     this.apiService.getPersonas()
@@ -29,9 +30,7 @@ export class FirstPartComponent implements OnInit {
           const personasToDelete = personas.slice(1);
           personasToDelete.forEach(persona => this.apiService.deletePersona(persona.id).subscribe());
           personas.splice(1);          
-        }       
+        }
       });
-      this.limpio = true;
-      console.log(this.limpio);
   }
 }
