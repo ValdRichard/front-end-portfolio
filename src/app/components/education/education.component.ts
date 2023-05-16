@@ -27,7 +27,7 @@ export class EducationComponent implements OnInit {
     console.log(id);
     this.apiService.deleteEducacion(id)
       .subscribe(data=>{
-        window.location.reload();
+        this.educaciones = this.educaciones?.filter(data => data.id !== id);
       })
   }
 }

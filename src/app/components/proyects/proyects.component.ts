@@ -26,8 +26,8 @@ export class ProyectsComponent implements OnInit {
   
   eliminar(id: any): void{
     this.apiService.deleteProyecto(id)
-      .subscribe(data=>{
-        window.location.reload();
+      .subscribe(()=>{
+        this.proyectos = this.proyectos?.filter(data => data.id !== id);
       })
   }
 }

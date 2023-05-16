@@ -39,10 +39,6 @@ export class ProyectsCreateComponent implements OnInit {
     return this.form.get('descripcionProyecto');
   }
 
-  get ImageProyecto(){
-    return this.form.get('imageProyecto');
-  }
-
   get RepoUrl(){
     return this.form.get('repoUrl');
   }

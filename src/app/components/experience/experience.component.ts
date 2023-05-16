@@ -29,7 +29,7 @@ export class ExperienceComponent implements OnInit {
     console.log(id);
     this.apiService.deleteExperiencia(id)
       .subscribe(data=>{
-        window.location.reload();
+        this.experiencias = this.experiencias?.filter(data => data.id !== id);
       })
   }
 }

@@ -35,19 +35,14 @@ export class EducationUpdateComponent implements OnInit {
     this.apiService.getEducacion(this.route.snapshot.paramMap.get('id')).subscribe(
       (educacion: any) => {
         this.educacion = educacion;
-        this.form.controls['nivel'].setValue(educacion.nivel);
         this.form.controls['tituloEdu'].setValue(educacion.tituloEdu);
         this.form.controls['periodoEdu'].setValue(educacion.periodoEdu);
         this.form.controls['institucionEdu'].setValue(educacion.institucionEdu);
         this.form.controls['descripcionEdu'].setValue(educacion.descripcionEdu);
-        this.form.controls['urlLogoEdu'].setValue(educacion.urlLogoEdu);
       }
     )
   }
-  
-  get Nivel(){
-    return this.form.get('nivel');
-  }
+
   get TituloEdu(){
     return this.form.get('tituloEdu');
   }
@@ -61,10 +56,6 @@ export class EducationUpdateComponent implements OnInit {
 
   get DescripcionEdu(){
     return this.form.get('descripcionEdu');
-  }
-  
-  get UrlLogoEdu(){
-    return this.form.get('urlLogoEdu');
   }
 
   onEnviar(event:Event){

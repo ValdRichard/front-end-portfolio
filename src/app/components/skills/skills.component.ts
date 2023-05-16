@@ -23,11 +23,11 @@ export class SkillsComponent implements OnInit {
       })
   }
   
-  
+
   eliminar(id: any): void{
     this.apiService.deleteSkill(id)
-      .subscribe(data=>{
-        window.location.reload();
-      })
+    .subscribe(() => {
+      this.skills = this.skills?.filter(data => data.id !== id);
+    });
   }
 }
